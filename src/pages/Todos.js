@@ -37,55 +37,66 @@ function Todos() {
   });
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>My To-Do App</h2>
+    <div className="page-container">
+      <h2 className="page-title">My To-Do App</h2>
 
-      <input
-        type="text"
-        placeholder="Enter a task"
-        value={task}
-        onChange={(e) => setTask(e.target.value)}
-      />
+      <div className="todo-layout">
+        <div className="todo-form-section">
+          <h3>Add a New Task</h3>
+          <input
+            className="todo-input"
+            type="text"
+            placeholder="Enter a task"
+            value={task}
+            onChange={(e) => setTask(e.target.value)}
+          />
+          <button className="primary-button" onClick={handleAddTask}>
+            Add Task
+          </button>
+        </div>
 
-      <button onClick={handleAddTask} style={{ marginLeft: "10px" }}>
-        Add Task
-      </button>
+        <div className="todo-list-section">
+          <div className="filter-row">
+            <button className="filter-button" onClick={() => setFilter("all")}>
+              All
+            </button>
+            <button className="filter-button" onClick={() => setFilter("active")}>
+              Active
+            </button>
+            <button className="filter-button" onClick={() => setFilter("completed")}>
+              Completed
+            </button>
+          </div>
 
-      <div style={{ marginTop: "20px" }}>
-        <button onClick={() => setFilter("all")}>All</button>
-        <button onClick={() => setFilter("active")} style={{ marginLeft: "10px" }}>
-          Active
-        </button>
-        <button onClick={() => setFilter("completed")} style={{ marginLeft: "10px" }}>
-          Completed
-        </button>
+          {filteredTasks.length === 0 ? (
+            <p>No tasks to show.</p>
+          ) : (
+            <ul style={{ listStyle: "none", padding: 0 }}>
+              {filteredTasks.map((item) => (
+                <li key={item.id} className="task-item">
+                  <span className={item.completed ? "completed-task" : ""}>
+                    {item.text}
+                  </span>
+                  <div style={{ marginTop: "10px" }}>
+                    <button
+                      className="action-button"
+                      onClick={() => handleToggleComplete(item.id)}
+                    >
+                      {item.completed ? "Undo" : "Complete"}
+                    </button>
+                    <button
+                      className="action-button"
+                      onClick={() => handleDeleteTask(item.id)}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
-
-      <ul style={{ marginTop: "20px" }}>
-        {filteredTasks.map((item) => (
-          <li key={item.id} style={{ marginBottom: "10px" }}>
-            <span
-              style={{
-                textDecoration: item.completed ? "line-through" : "none",
-                marginRight: "10px",
-              }}
-            >
-              {item.text}
-            </span>
-
-            <button onClick={() => handleToggleComplete(item.id)}>
-              {item.completed ? "Undo" : "Complete"}
-            </button>
-
-            <button
-              onClick={() => handleDeleteTask(item.id)}
-              style={{ marginLeft: "10px" }}
-            >
-              Delete
-            </button>
-          </li>
-        ))}
-      </ul>
     </div>
   );
 }

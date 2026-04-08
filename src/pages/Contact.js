@@ -17,48 +17,44 @@ function Contact() {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>Contact Page</h2>
+    <div className="page-container">
+      <h2 className="page-title">Contact</h2>
 
-      <form>
-        <div style={{ marginBottom: "10px" }}>
-          <label>First Name: </label>
-          <input
-            type="text"
-            name="firstName"
-            value={formData.firstName}
-            onChange={handleChange}
-          />
-        </div>
+      <form className="contact-form">
+        <label>First Name</label>
+        <input
+          className="contact-input"
+          type="text"
+          name="firstName"
+          value={formData.firstName}
+          onChange={handleChange}
+        />
 
-        <div style={{ marginBottom: "10px" }}>
-          <label>Last Name: </label>
-          <input
-            type="text"
-            name="lastName"
-            value={formData.lastName}
-            onChange={handleChange}
-          />
-        </div>
+        <label>Last Name</label>
+        <input
+          className="contact-input"
+          type="text"
+          name="lastName"
+          value={formData.lastName}
+          onChange={handleChange}
+        />
 
-        <div style={{ marginBottom: "10px" }}>
-          <label>Email: </label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-          />
-        </div>
+        <label>Email</label>
+        <input
+          className="contact-input"
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+        />
 
-        <div style={{ marginBottom: "10px" }}>
-          <label>Comments: </label>
-          <textarea
-            name="comments"
-            value={formData.comments}
-            onChange={handleChange}
-          />
-        </div>
+        <label>Comments</label>
+        <textarea
+          className="contact-textarea"
+          name="comments"
+          value={formData.comments}
+          onChange={handleChange}
+        />
       </form>
     </div>
   );

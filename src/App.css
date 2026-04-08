@@ -1,38 +1,121 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+nav {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 20px;
+  padding: 16px 24px;
+  background-color: #222;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #ffd166;
+}
+
+.page-container {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+.page-title {
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.todo-layout {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.todo-form-section,
+.todo-list-section,
+.contact-form {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.todo-form-section {
+  width: 35%;
+}
+
+.todo-list-section {
+  width: 65%;
+}
+
+.todo-input,
+.contact-input,
+.contact-textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.contact-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.primary-button,
+.filter-button,
+.action-button {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.primary-button {
+  background-color: #0077cc;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.filter-button {
+  background-color: #e0e0e0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.action-button {
+  background-color: #222;
+  color: white;
+}
+
+.task-item {
+  margin-bottom: 12px;
+  padding: 12px;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+}
+
+.completed-task {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.filter-row {
+  margin-bottom: 20px;
+}
+
+.contact-form {
+  max-width: 600px;
+}
+
+label {
+  font-weight: bold;
 }
